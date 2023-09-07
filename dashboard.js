@@ -111,3 +111,30 @@ function updateParkingDetailsList() {
     var slotStatus = parkingSlot.dataset.status;
   }
 }
+function logout() {
+  location.replace("http://127.0.0.1:5500/public/index.html");
+}
+document.addEventListener("DOMContentLoaded", function () {
+  const heading = document.getElementById("typing-effect");
+  heading.style.display = "inline-block";
+
+  let textToType = "Parking Slot Details";
+  let currentIndex = 0;
+  function typeText() {
+    heading.textContent = "";
+    currentIndex = 0;
+
+    function typeCharacter() {
+      if (currentIndex < textToType.length) {
+        heading.textContent += textToType.charAt(currentIndex);
+        currentIndex++;
+        setTimeout(typeCharacter, 100);
+      }
+    }
+
+    typeCharacter();
+  }
+
+  setInterval(typeText, 4000);
+  typeText();
+});
