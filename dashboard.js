@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const heading = document.getElementById("typing-effect");
   heading.style.display = "inline-block";
 
-  let textToType = "Parking Slot Details";
+  let textToType = "Available & Booked Parking Slots";
   let currentIndex = 0;
   function typeText() {
     heading.textContent = "";
@@ -135,6 +135,6 @@ document.addEventListener("DOMContentLoaded", function () {
     typeCharacter();
   }
 
-  setInterval(typeText, 4000);
+  setInterval(typeText, 5000);
   typeText();
 });
