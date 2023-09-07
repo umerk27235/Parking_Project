@@ -1,0 +1,29 @@
+.header{
+    background-color: rgb(80, 151, 198);
+  }
+  .parking-slot {
+    width: 100px;
+    height: 60px;
+    background-color: #ccc;
+    border: 1px solid #000;
+    margin: 10px;
+    text-align: center;
+    line-height: 60px;
+    font-weight: bold;
+    font-size: 14px;
+    float: left;
+}
+.parking-slot {
+  background-color: rgb(26, 255, 0); /* Change the background color to red */
+  color: black; /* Change the text color to black */
+  /* Add any other styles you need, such as padding or borders */
+}
+.booking-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.booking-item{
+background-color: #bdc0bb;
+border-style: solid;
+}

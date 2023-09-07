@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../src/dashboard.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Pacific Parking Services</h1>
+    </div>
+    <div class="container">
+        <h2>Parking Slot Details</h2>
+        <table class="table table-bordered" id="bookingTable">
+            <thead>
+                <tr>
+                    <th>Slot Number</th>
+                    <th>Name</th>
+                    <th>License Plate</th>
+                    <th>Phone Number</th>
+                    <th>Car Brand</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="bookingTableBody">
+    </div>
+    <div class="container">
+        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Book Parking</button>
+        <br>
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Confirm Booking</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form id="bookParkingForm">
+                            <label for="bookName">Name</label>
+                            <input type="text" name="Name" id="bookName" placeholder="Name" class="form-control" required>
+                            <br>
+                            <label for="bookLicenseplate">License plate</label>
+                            <input type="text" name="Licenseplate" id="bookLicenseplate" placeholder="License plate" class="form-control" required>
+                            <br>
+                            <label for="bookPhonenumber">Phone Number</label>
+                            <input type="tel" name="phonenumber" id="bookPhonenumber" placeholder="e.g +92-0000" class="form-control" required pattern="(\+\d+)?(\.\d+)?">
+                            <br>
+                            <label for="bookCarbrand">Car Brand</label>
+                            <input type="text" name="carbrand" id="bookCarbrand" placeholder="Car Brand" class="form-control" required>
+                            <br>
+                            <label for="slotSelector">Select Parking Slot</label>
+                            <select id="slotSelector" name="parkingSlot" class="form-control" required>
+                              <option value="" disabled selected>Select a parking slot</option>
+                              <option value="Slot 1">Slot 1</option>
+                              <option value="Slot 2">Slot 2</option>
+                              <option value="Slot 3">Slot 3</option>
+                              <option value="Slot 4">Slot 4</option>
+                              <option value="Slot 5">Slot 5</option>
+                              <option value="Slot 6">Slot 6</option>
+                              <option value="Slot 7">Slot 7</option>
+                              <option value="Slot 8">Slot 8</option>
+                              <option value="Slot 9">Slot 9</option>
+                              <option value="Slot 10">Slot 10</option>
+                              <option value="Slot 11">Slot 11</option>
+                              <option value="Slot 12">Slot 12</option>
+                              <option value="Slot 13">Slot 13</option>
+                              <option value="Slot 14">Slot 14</option>
+                              <option value="Slot 15">Slot 15</option>
+                              <!-- Add more options for your parking slots as needed -->
+                            </select>
+                            <br>
+                            <label class="form-label" for="customFile">Vehicle Picture</label>
+                            <input type="file" class="form-control" id="customFile" />
+                            <br>
+                            <label for="bookStarttime">Start Time</label>
+                            <input type="datetime-local" id="bookStarttime" name="starttime" required>
+                            
+                            <label for="bookEndtime">End Time</label>
+                            <input type="datetime-local" id="bookEndtime" name="endtime" required>
+                            <br>
+                            
+                            <div class="modal-footer">
+                                <!-- Dropdown for parking slots -->
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <input type="reset" class="btn btn-default" value="Reset">
+                                <button type="submit" onclick="color()" class="btn btn-default">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="successModalLabel">Thank you for using Pacific Parking Services</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Parking is successfully booked.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+        <div class="parking-slot" data-slot="Slot 1">Slot 1</div>
+        <div class="parking-slot" data-slot="Slot 2">Slot 2</div>
+        <div class="parking-slot" data-slot="Slot 3">Slot 3</div>
+        <div class="parking-slot" data-slot="Slot 4">Slot 4</div>
+        <div class="parking-slot" data-slot="Slot 5">Slot 5</div>
+        <div class="parking-slot" data-slot="Slot 6">Slot 6</div>
+        <div class="parking-slot" data-slot="Slot 7">Slot 7</div>
+        <div class="parking-slot" data-slot="Slot 8">Slot 8</div>
+        <div class="parking-slot" data-slot="Slot 9">Slot 9</div>
+        <div class="parking-slot" data-slot="Slot 10">Slot 10</div>
+        <div class="parking-slot" data-slot="Slot 11">Slot 11</div>
+        <div class="parking-slot" data-slot="Slot 12">Slot 12</div>
+        <div class="parking-slot" data-slot="Slot 13">Slot 13</div>
+        <div class="parking-slot" data-slot="Slot 14">Slot 14</div>
+        <div class="parking-slot" data-slot="Slot 15">Slot 15</div>
+        <!-- Add more parking slots as needed -->
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="container" id="bookingList">
+            <ul id="parkingDetailsList"></ul>
+        </div>
+            
+            <!-- The list items will be added here -->
+          </div>
+          
+          
+        <script src="../dashboard.js"></script>
+    </div>
+</body>
+</html>
