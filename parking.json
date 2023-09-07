@@ -1,6 +1,0 @@
-{
-  "slots": [
-    { "id": 1, "name": "Slot 1", "status": "available" },
-    { "id": 2, "name": "Slot 2", "status": "available" }
-  ]
-}

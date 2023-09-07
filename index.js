@@ -10,7 +10,6 @@ function showpassword() {
 const loginForm = document.getElementById("login-form");
 const loginButton = document.getElementById("login-form-submit");
 console.log(loginButton);
-// const loginErrorMsg = document.getElementById("login-error-msg");
 
 loginButton.addEventListener("click", (e) => {
   e.preventDefault();
