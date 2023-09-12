@@ -10,9 +10,12 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
+  
     <div class="header">
         <h1>Welcome to Pacific Parking Services</h1>
+        
     </div>
+    
     <div class="logout">
       <button type="logout" class="btn btn-info btn-lg" onclick="logout()" id="logout">Logout</button>
     </div>
@@ -86,7 +89,11 @@
                             
                             <label for="bookEndtime">End Time</label>
                             <input type="datetime-local" id="bookEndtime" name="endtime" required>
+                            
                             <br>
+<br>
+                            <label for="Bill">Total Bill</label>
+                            <input type="text" id="Bill" name="bill" readonly>
                             
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -148,8 +155,6 @@
             <ul id="parkingDetailsList"></ul>
         </div>
           </div>
-          
-          
         <script src="../dashboard.js"></script>
     </div>
 </body>

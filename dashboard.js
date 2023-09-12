@@ -138,3 +138,49 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(typeText, 5000);
   typeText();
 });
+function updateBillableAmount() {
+  var startTime = new Date(document.getElementById("bookStarttime").value);
+  var endTime = new Date(document.getElementById("bookEndtime").value);
+
+  if (isNaN(startTime) || isNaN(endTime)) {
+    // Invalid date input, reset billable amount
+    document.getElementById("Bill").value = "";
+    return;
+  }
+
+  var durationInMilliseconds = endTime - startTime;
+  var durationInMinutes = durationInMilliseconds / (1000 * 60);
+
+  var halfHourRate = 10; // $10 for each half-hour
+
+  var billableAmount = 0;
+
+  if (durationInMinutes > 0) {
+    billableAmount = Math.ceil(durationInMinutes / 30) * halfHourRate;
+  }
+
+  // Update the billable amount field in the modal
+  document.getElementById("Bill").value = "$" + billableAmount.toFixed(2);
+}
+
+document
+  .getElementById("bookStarttime")
+  .addEventListener("input", updateBillableAmount);
+document
+  .getElementById("bookEndtime")
+  .addEventListener("input", updateBillableAmount);
+// Get the current date and time in the format expected by datetime-local inputs
+
+function getCurrentDatetime() {
+  var now = new Date();
+  var year = now.getFullYear();
+  var month = (now.getMonth() + 1).toString().padStart(2, "0"); // Months are 0-based
+  var day = now.getDate().toString().padStart(2, "0");
+  var hours = now.getHours().toString().padStart(2, "0");
+  var minutes = now.getMinutes().toString().padStart(2, "0");
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+// Set the min attribute for the start and end time inputs
+document.getElementById("bookStarttime").min = getCurrentDatetime();
+document.getElementById("bookEndtime").min = getCurrentDatetime();
