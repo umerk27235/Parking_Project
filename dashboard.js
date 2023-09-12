@@ -9,6 +9,7 @@ function successfully() {
   document.getElementById("customFile").value = "";
   document.getElementById("bookStarttime").value = "";
   document.getElementById("bookEndtime").value = "";
+  document.getElementById("billable").value = "";
   updateParkingDetailsList();
 }
 
@@ -63,10 +64,9 @@ function updateBookingList() {
   var selectedSlot = document.getElementById("slotSelector").value;
   var startTime = document.getElementById("bookStarttime").value;
   var endTime = document.getElementById("bookEndtime").value;
+  var billableAmount = document.getElementById("billable").value;
 
-  var bookingTable = document.getElementById("bookingTable");
   var newRow = bookingTable.insertRow(1);
-
   var slotNumberCell = newRow.insertCell(0);
   var nameCell = newRow.insertCell(1);
   var licensePlateCell = newRow.insertCell(2);
@@ -75,6 +75,7 @@ function updateBookingList() {
   var startTimeCell = newRow.insertCell(5);
   var endTimeCell = newRow.insertCell(6);
   var statusCell = newRow.insertCell(7);
+  var billableAmountCell = newRow.insertCell(8);
 
   slotNumberCell.textContent = selectedSlot;
   nameCell.textContent = name;
@@ -84,6 +85,7 @@ function updateBookingList() {
   startTimeCell.textContent = startTime;
   endTimeCell.textContent = endTime;
   statusCell.textContent = "Booked";
+  billableAmountCell.textContent = billableAmount;
 }
 
 document
@@ -144,7 +146,7 @@ function updateBillableAmount() {
 
   if (isNaN(startTime) || isNaN(endTime)) {
     // Invalid date input, reset billable amount
-    document.getElementById("Bill").value = "";
+    document.getElementById("billable").value = "";
     return;
   }
 
@@ -160,7 +162,7 @@ function updateBillableAmount() {
   }
 
   // Update the billable amount field in the modal
-  document.getElementById("Bill").value = "$" + billableAmount.toFixed(2);
+  document.getElementById("billable").value = "$" + billableAmount.toFixed(2);
 }
 
 document
