@@ -66,6 +66,10 @@ h2#typing-effect {
 }
 body {
   background-image: url(../public/image6.webp);
+  /* background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; */
 }
 th {
   color: #000; /* Dark black color */
