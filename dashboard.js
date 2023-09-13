@@ -1,6 +1,7 @@
 const welcomeAudio = document.getElementById("welcome-audio"); // Added this line
 function successfully() {
   $("#successModal").modal("show");
+  play();
   $("#myModal").modal("hide");
   document.getElementById("bookName").value = "";
   document.getElementById("bookLicenseplate").value = "";
