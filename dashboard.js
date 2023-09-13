@@ -1,3 +1,4 @@
+const welcomeAudio = document.getElementById("welcome-audio"); // Added this line
 function successfully() {
   $("#successModal").modal("show");
   $("#myModal").modal("hide");
@@ -186,3 +187,7 @@ function getCurrentDatetime() {
 // Set the min attribute for the start and end time inputs
 document.getElementById("bookStarttime").min = getCurrentDatetime();
 document.getElementById("bookEndtime").min = getCurrentDatetime();
+
+function play() {
+  welcomeAudio.play();
+}

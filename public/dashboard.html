@@ -99,7 +99,7 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                                 <input type="reset" class="btn btn-default" value="Reset">
-                                <button type="submit" onclick="color()" class="btn btn-default">Submit</button>
+                                <button type="submit" onclick="color(); play();" class="btn btn-default">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -117,6 +117,7 @@
         </div>
         <div class="modal-body">
           Parking is successfully booked.
+          <audio id="welcome-audio" src="../Success.mp3"></audio>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
